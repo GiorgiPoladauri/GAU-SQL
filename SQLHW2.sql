@@ -1,15 +1,12 @@
--- Step 1: Create the database if it doesn't exist
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'LibraryManagement')
 BEGIN
     CREATE DATABASE LibraryManagement;
 END;
 
--- Step 2: Use the database
 GO
 USE LibraryManagement;
 GO
 
--- Step 3: Create Tables
 CREATE TABLE Books (
     BookID INT PRIMARY KEY IDENTITY(1,1),
     Title NVARCHAR(255) NOT NULL,
@@ -51,7 +48,6 @@ CREATE TABLE BookAuthors (
 
 GO
 
--- Step 4: Create Stored Procedures
 CREATE PROCEDURE AddBorrowingRecord
     @MemberID INT,
     @BookID INT,
@@ -74,7 +70,6 @@ BEGIN
 END;
 GO
 
--- Step 5: Create Views
 CREATE VIEW BorrowedBooksByMember AS
 SELECT 
     Members.FirstName, 
@@ -96,7 +91,6 @@ INNER JOIN Books ON BookAuthors.BookID = Books.BookID
 INNER JOIN Authors ON BookAuthors.AuthorID = Authors.AuthorID;
 GO
 
--- Step 6: Create Functions
 CREATE FUNCTION TotalBooksBorrowed(@MemberID INT)
 RETURNS INT
 AS
@@ -117,7 +111,6 @@ BEGIN
 END;
 GO
 
--- Step 7: Insert Sample Data
 INSERT INTO Authors (Name, Country) VALUES ('J.K. Rowling', 'UK');
 INSERT INTO Authors (Name, Country) VALUES ('George R.R. Martin', 'USA');
 
@@ -130,6 +123,5 @@ VALUES ('Alice', 'Smith', '1990-02-15', '2024-01-01');
 INSERT INTO BookAuthors (BookID, AuthorID) VALUES (1, 1);
 INSERT INTO BookAuthors (BookID, AuthorID) VALUES (2, 2);
 
--- Step 8: Example Procedure Call
 EXEC AddBorrowingRecord @MemberID = 1, @BookID = 1, @BorrowDate = '2024-11-27';
 GO
