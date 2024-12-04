@@ -1,19 +1,19 @@
 --HomeWork 3 in Micrososft Server Management Studio : "Create Basic Function For (GiorgiPoladauri|Made) LibraryManagement DataBase"  
 
---CREATE FUNCTION GetAllStudentNamesAndDaysAfterBorrow(@FullName INT)  
---RETURNS TABLE  
---AS   
---RETURN
---    SELECT 
---        m.MemberID,
---        m.FirstName, 
---        m.LastName, 
---        DATEDIFF(DAY, br.BorrowDate, GETDATE()) AS DaysAfterBorrow
---    FROM BorrowingRecords br
---    INNER JOIN Members m ON br.MemberID = m.MemberID
---    WHERE br.MemberID = @FullName;
+--Create Function dbo.DaysAfterBorrow(@MemberID INT)
+--Returns Int
+--As
+--Begin
+--    Declare @Days INT;
 
---Select GetAllStudentNamesAndDaysAfterBorrow(1)
+-- Select @Days = DATEDIFF(Day,BorrowDate,GetDate())
+-- From BorrowingRecords OD
+-- Where MemberID = @MemberID;
+
+-- Return @Days;
+--End;
+
+--Select DaysAfterBorrow(1)
 
 --CREATE FUNCTION GetStudentDetailsWithDays(@FullName INT)  
 --RETURNS TABLE  
