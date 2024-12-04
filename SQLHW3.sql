@@ -1,4 +1,4 @@
---HomeWork 3 in Micrososft Server Management Studio : "Create Basic Function For NorthWind DataBase"  
+--HomeWork 3 in Micrososft Server Management Studio : "Create Basic Function For (GiorgiPoladauri|Made) LibraryManagement DataBase"  
 
 --CREATE FUNCTION GetAllStudentNamesAndDaysAfterBorrow(@FullName INT)  
 --RETURNS TABLE  
