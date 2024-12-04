@@ -13,7 +13,7 @@
 -- Return @Days;
 --End;
 
---Select DaysAfterBorrow(1)
+--Select dbo.DaysAfterBorrow(1)
 
 --CREATE FUNCTION GetStudentDetailsWithDays(@FullName INT)  
 --RETURNS TABLE  
