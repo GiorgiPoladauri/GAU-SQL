@@ -2,14 +2,14 @@
 
 BEGIN TRANSACTION;
 INSERT INTO Members (FirstName, LastName, DateOfBirth, MembershipDate)
-VALUES ('John', 'Doe', '1990-05-10', GETDATE());
+VALUES ('John', 'Doeshvili', '1990-05-10', GETDATE());
 COMMIT;
 
 BEGIN TRANSACTION;
 DECLARE @MemberID INT;
 SELECT @MemberID = MemberID
 FROM Members
-WHERE FirstName = 'John' AND LastName = 'Doe';
+WHERE FirstName = 'John' AND LastName = 'Doeshvili';
 IF @MemberID IS NOT NULL
 BEGIN
     INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate)
