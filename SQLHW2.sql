@@ -1,3 +1,5 @@
+--GPoladauri made this database for DB-2 subject at GAU...
+
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'LibraryManagement')
 BEGIN
     CREATE DATABASE LibraryManagement;
